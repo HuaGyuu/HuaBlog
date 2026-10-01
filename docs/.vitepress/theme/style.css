@@ -1,0 +1,91 @@
+/* 自定义主题样式：让站点更美观 */
+
+:root {
+  /* 主题色：清爽的蓝色 */
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #1d4ed8;
+  --vp-c-brand-3: #3b82f6;
+
+  /* 圆角更柔和 */
+  --vp-border-radius: 10px;
+
+  /* 侧边栏背景改为白色，与主内容区（主色调）一致 */
+  --vp-sidebar-bg-color: #ffffff;
+
+  /* 首页 Hero 动画 */
+  --vp-home-hero-name-background: linear-gradient(120deg, #2563eb 30%, #06b6d4);
+  --vp-home-hero-name-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* 首页标题渐变色 */
+.VPHero .name {
+  background: var(--vp-home-hero-name-background);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
+}
+
+/* 卡片悬停效果 */
+.VPFeature {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid transparent;
+}
+.VPFeature:hover {
+  transform: translateY(-4px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 让正文行高更舒适 */
+.vp-doc p {
+  line-height: 1.9;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-2);
+  border-radius: 8px;
+}
+
+/* ===== 侧边栏美化 ===== */
+
+/* 侧边栏整体留白更舒服 */
+.VPSidebar .nav {
+  padding-top: 8px;
+}
+
+/* 一级分组标题：加粗、带颜色，看起来更清晰 */
+.VPSidebar .nav .nav-group-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--vp-c-brand-1);
+  padding-top: 18px;
+}
+
+/* 可折叠分组标题（如 Java、并发）：鼠标悬停变色 */
+.VPSidebar .nav .nav-link {
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.VPSidebar .nav .nav-link:hover {
+  background-color: color-mix(in srgb, var(--vp-c-brand-1) 8%, transparent);
+}
+
+/* 当前页面的高亮项 */
+.VPSidebar .nav .link.active {
+  color: var(--vp-c-brand-1);
+  background-color: color-mix(in srgb, var(--vp-c-brand-1) 12%, transparent);
+  font-weight: 600;
+}
+
+/* 子链接（叶子项）与父级分隔更明显 */
+.VPSidebar .nav .nav-link-group .nav .nav-link {
+  padding-left: 20px;
+}
