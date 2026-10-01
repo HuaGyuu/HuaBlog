@@ -18,6 +18,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '博客笔记', link: '/note/' },
+      { text: '闲话', link: '/says/describe' },
       { text: '个人介绍', link: '/personal-introduction' }
     ],
 
@@ -25,9 +26,19 @@ export default defineConfig({
     sidebar: {
       // `/note/` 侧边栏由 noteSidebar() 自动扫描 docs/note 目录生成
       '/note/': noteSidebar(),
+      '/says': [
+        {
+          text: '闲话',
+          items: [
+            { text: '说明', link: '/says/describe' },
+            { text: '人生的意义', link: '/says/人生的意义' },
+            { text: '被爱的前提', link: '/says/被爱的前提' }
+          ]
+        }
+      ],
       '/': [
         {
-          text: '其他',
+          text: '',
           items: [
             { text: '个人介绍', link: '/personal-introduction' }
           ]
