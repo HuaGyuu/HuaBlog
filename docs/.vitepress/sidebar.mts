@@ -23,6 +23,12 @@ const NOTE_ROOT = 'note'
 /** 展开/折叠配置：按目录相对根目录的路径（/）设定。默认展开。 */
 const COLLAPSED_DIRS = new Set<string>(['project', 'misc'])
 
+/**
+ * 扫描时跳过的目录名（例如存放图片等资源的 `assets`），
+ * 这些目录不会出现在侧边栏里，里面的 Markdown 也不会被收录。
+ */
+const IGNORED_DIRS = new Set<string>(['assets'])
+
 interface SidebarItem {
   text: string
   link?: string
@@ -73,6 +79,7 @@ function buildForDir(absDir: string, relDir: string): SidebarItem[] {
   const entries = readdirSync(absDir)
     .filter((name) => !name.startsWith('.') && !name.endsWith('.js'))
     .filter((name) => !(relDir === NOTE_ROOT && name === 'index.md'))
+    .filter((name) => !IGNORED_DIRS.has(name))
     .map((name): PathInfo => {
       const full = join(absDir, name)
       const rel = join(relDir, name)

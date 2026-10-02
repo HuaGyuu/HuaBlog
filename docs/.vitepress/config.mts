@@ -31,6 +31,7 @@ export default defineConfig({
           text: '闲话',
           items: [
             { text: '说明', link: '/says/describe' },
+            { text: '以貌取人', link: '/says/以貌取人' },
             { text: '人生的意义', link: '/says/人生的意义' },
             { text: '被爱的前提', link: '/says/被爱的前提' }
           ]
